@@ -1,7 +1,7 @@
 const userModel=require('../models/user.model')
 const tokenBlackListModel=require('../models/blackList.model')
 const jwt=require('jsonwebtoken')
-
+const emailService=require('../services/email.service')
 //Register Api
 async function userRegisterController(req,res){
     const {email,password,name,phone}=req.body
@@ -39,6 +39,7 @@ res.status(201).json({
         },
         token
     })
+    await emailService.sendRegistrationEmail(user.email, user.name)
 }
 
 //Login Api
@@ -86,5 +87,6 @@ async function userLogoutController(req,res) {
     res.status(200).json({
         message: "User logged out successfully"
     })
+    
 }
 module.exports={userRegisterController,userLoginController,userLogoutController}
