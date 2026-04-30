@@ -30,9 +30,10 @@ const memberSchema=new mongoose.Schema({
     },
     gender:{
         type:String,
-        enum:["Male","Female","Other"],
-        default:"Male",
-        required:[true,"Gender is required"]
+        enum:["male","female","other"],
+        default:"male",
+        required:[true,"Gender is required"],
+        lowercase:true
     },
     membershipType:{
         type:String,
@@ -52,4 +53,7 @@ const memberSchema=new mongoose.Schema({
         default:true
     }
 },{timestamps:true})
+
+const memberModel=mongoose.model('member',memberSchema)
+module.exports=memberModel
 
