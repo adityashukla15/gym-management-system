@@ -4,7 +4,7 @@ const jwt=require('jsonwebtoken')
 const emailService=require('../services/email.service')
 //Register Api
 async function userRegisterController(req,res){
-    const {email,password,name,phone}=req.body
+    const {email,password,name,phone,role}=req.body
 
     const isExists = await userModel.findOne({
   $or: [
@@ -26,9 +26,9 @@ if (isExists) {
   }
 }
 const user= await userModel.create({
-    email,password,name,phone
+    email,password,name,phone,role: role || "member"
 })
-const token=jwt.sign({userId: user._id},process.env.JWT_SECRET,{expiresIn: "3d"})
+const token=jwt.sign({userId: user._id,role:user.role},process.env.JWT_SECRET,{expiresIn: "3d"})
 res.cookie("token",token)
 res.status(201).json({
         user: {
