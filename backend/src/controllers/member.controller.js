@@ -1,5 +1,5 @@
 const memberModel=require('../models/member.model')
-
+const planModel=require('../models/plan.model')
 
 async function createMember(req, res) {
   try {
@@ -52,7 +52,6 @@ async function createMember(req, res) {
   }
 }
 
-module.exports = { createMember };
 async function getAllMembers(req,res){
     try{
         const members=await memberModel.find().sort({createdAt: -1})
@@ -140,4 +139,55 @@ async function deleteMember(req,res){
   }
 }
 
-module.exports={createMember,getAllMembers,getMemberById,updateMember,deleteMember}
+async function buyPlan(req,res){
+  try{
+    const userId=req.user._id
+    const {planId}=req.body
+
+    const plan=await planModel.findById(planId)
+    if(!plan){
+      return res.status(404).json({message:"Plan not found"})
+    }
+
+    let endDate=new Date()
+    endDate.setDate(endDate.getDate()+plan.duration)
+
+    let member=await memberModel.findOne({userId})
+    if(member){
+      member.planId=planId
+      member.membershipEndDate=endDate
+      member.isActive=true
+
+      await member.save()
+    }else{
+      member=await memberModel.create({
+         userId,
+        planId,
+        membershipEndDate: endDate,
+        isActive: true
+      })
+    }
+    return res.status(200).json({
+      success: true,
+      message: "Plan purchased successfully",
+      member
+    })
+
+  }
+  catch(err){
+    res.status(500).json({
+      message: err.message
+    });
+  }
+}
+
+async function getMyMembership(req,res){
+  
+  try{
+    const member=await memberModel.findOne({userId:req.user._id}).populate('planId')
+    return res.json(member)
+  }catch(err){
+    res.status(500).json({ message: err.message });
+  }
+}
+module.exports={createMember,getAllMembers,getMemberById,updateMember,deleteMember,buyPlan,getMyMembership}

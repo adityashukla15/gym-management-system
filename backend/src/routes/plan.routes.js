@@ -6,7 +6,7 @@ const planController=require('../controllers/plan.controller')
 const router=express.Router()
 
 router.post('/create',authMiddleware.authMiddleware,roleMiddleware.isAdmin,planController.createPlan)
-router.get('/all',authMiddleware.authMiddleware,roleMiddleware.isAdmin,planController.getAllPlans)
+router.get('/all',authMiddleware.authMiddleware,planController.getAllPlans)
 router.get('/:id',authMiddleware.authMiddleware,roleMiddleware.isAdmin,planController.getPlanById)
 router.patch('/update/:id',authMiddleware.authMiddleware,roleMiddleware.isAdmin,planController.updatePlan)
 router.delete('/delete/:id',authMiddleware.authMiddleware,roleMiddleware.isAdmin,planController.deletePlan)
