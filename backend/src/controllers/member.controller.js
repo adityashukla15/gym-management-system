@@ -139,47 +139,47 @@ async function deleteMember(req,res){
   }
 }
 
-async function buyPlan(req,res){
-  try{
-    const userId=req.user._id
-    const {planId}=req.body
+// async function buyPlan(req,res){
+//   try{
+//     const userId=req.user._id
+//     const {planId}=req.body
 
-    const plan=await planModel.findById(planId)
-    if(!plan){
-      return res.status(404).json({message:"Plan not found"})
-    }
+//     const plan=await planModel.findById(planId)
+//     if(!plan){
+//       return res.status(404).json({message:"Plan not found"})
+//     }
 
-    let endDate=new Date()
-    endDate.setDate(endDate.getDate()+plan.duration)
+//     let endDate=new Date()
+//     endDate.setDate(endDate.getDate()+plan.duration)
 
-    let member=await memberModel.findOne({userId})
-    if(member){
-      member.planId=planId
-      member.membershipEndDate=endDate
-      member.isActive=true
+//     let member=await memberModel.findOne({userId})
+//     if(member){
+//       member.planId=planId
+//       member.membershipEndDate=endDate
+//       member.isActive=true
 
-      await member.save()
-    }else{
-      member=await memberModel.create({
-         userId,
-        planId,
-        membershipEndDate: endDate,
-        isActive: true
-      })
-    }
-    return res.status(200).json({
-      success: true,
-      message: "Plan purchased successfully",
-      member
-    })
+//       await member.save()
+//     }else{
+//       member=await memberModel.create({
+//          userId,
+//         planId,
+//         membershipEndDate: endDate,
+//         isActive: true
+//       })
+//     }
+//     return res.status(200).json({
+//       success: true,
+//       message: "Plan purchased successfully",
+//       member
+//     })
 
-  }
-  catch(err){
-    res.status(500).json({
-      message: err.message
-    });
-  }
-}
+//   }
+//   catch(err){
+  //  res.status(500).json({
+  //     message: err.message
+//     });
+//   }
+// }
 
 async function getMyMembership(req,res){
   
@@ -190,4 +190,4 @@ async function getMyMembership(req,res){
     res.status(500).json({ message: err.message });
   }
 }
-module.exports={createMember,getAllMembers,getMemberById,updateMember,deleteMember,buyPlan,getMyMembership}
+module.exports={createMember,getAllMembers,getMemberById,updateMember,deleteMember,getMyMembership}

@@ -11,7 +11,7 @@ router.get('/my-membership',authMiddleware.authMiddleware,memberController.getMy
 router.get('/:id',authMiddleware.authMiddleware,memberController.getMemberById)
 router.put('/update/:id',authMiddleware.authMiddleware,memberController.updateMember)
 router.delete('/delete/:id',authMiddleware.authMiddleware,memberController.deleteMember)
-router.post('/buy-plan',authMiddleware.authMiddleware,memberController.buyPlan)
+
 
 
 module.exports=router
