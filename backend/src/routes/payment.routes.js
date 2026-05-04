@@ -7,5 +7,6 @@ const router=express.Router()
 
 router.post('/create',authMiddleware.authMiddleware,paymentController.createPayment)
 router.post('/update-payments',authMiddleware.authMiddleware,paymentController.updatePaymentStatus)
+router.get('/my-history',authMiddleware.authMiddleware,paymentController.getPaymentHistory)
 
 module.exports=router

@@ -40,8 +40,7 @@ async function updatePaymentStatus(req, res) {
       return res.status(404).json({ message: "Payment not found" });
     }
 
-    const user = req.user; // ✅ IMPORTANT
-
+    const user = req.user; 
     // 🔥 prevent double processing
     if (payment.status === 'success') {
       const existingMember = await memberModel.findOne({ userId: payment.userId });
@@ -97,5 +96,24 @@ async function updatePaymentStatus(req, res) {
     res.status(500).json({ message: err.message });
   }
 }
+async function getPaymentHistory(req,res){
+  try{
+    const userId=req.user._id
+    const payments=await paymentModel.find({userId})
+    .populate("planId","planName price duration")
+    .sort({createdAt:-1})
+    return res.status(200).json({
+      sucess:true,
+      count:payments.length,
+      payments
+    })
+  }
+  catch(err){
+     res.status(500).json({
+      success: false,
+      message: err.message
+    });
+  }
+ }
 
-module.exports = { createPayment, updatePaymentStatus }
+module.exports = { createPayment, updatePaymentStatus,getPaymentHistory }
