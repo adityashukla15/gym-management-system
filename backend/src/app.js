@@ -5,6 +5,7 @@ const memberRouter=require('../src/routes/member.routes')
 const planRouter=require('../src/routes/plan.routes')
 const paymentRouter=require('../src/routes/payment.routes')
 const dashboardRouter=require('../src/routes/dashboard.routes')
+const expireMemberships=require('../src/cron/membership.cron')
 
 const app=express()
 
@@ -15,5 +16,5 @@ app.use('/api/member',memberRouter)
 app.use('/api/plans',planRouter)
 app.use('/api/payments',paymentRouter)
 app.use('/api/dashboard',dashboardRouter)
-
+expireMemberships()
 module.exports=app
