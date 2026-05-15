@@ -133,19 +133,19 @@ src/
 
 # ⚙️ Installation & Setup
 
-## 1️⃣ Clone Repository
+**1️⃣ Clone Repository**
 
 ```bash
 git clone <your-github-link>
 ```
 
-# Install Dependencies:
+**Install Dependencies**:
 
 ```bash
 npm install
 ```
 
-# Create .env File:
+**Create .env File**:
 
 ```bash
 PORT=3000
@@ -159,7 +159,7 @@ EMAIL_USER=your_email
 EMAIL_PASS=your_email_password
 ```
 
-# 4️⃣ Run Server
+**4️⃣Run Server**
 
 ```bash
 npm run dev
@@ -167,87 +167,83 @@ npm run dev
 
 ## API ROUTES
 
-# AUTH ROUTES:
-*POST /api/users/register
-*POST /api/users/login
-*GET /api/users/logout
+**AUTH ROUTES**:
+* POST /api/users/register
+* POST /api/users/login
+* GET /api/users/logout
 
-# PLAN ROUTES:
-*POST /api/plans/create
-*GET /api/plans
-*GET /api/plans/:id
-*PUT /api/plans/:id
-*DELETE /api/plans/:id
+**PLAN ROUTES**:
+* POST /api/plans/create
+* GET /api/plans
+* GET /api/plans/:id
+* PUT /api/plans/:id
+* DELETE /api/plans/:id
 
-# MEMBER ROUTES:
-*POST /api/members/create
-*GET /api/members
-*GET /api/members/:id
-*PUT /api/members/:id
-*DELETE /api/members/:id
+**MEMBER ROUTES**:
+* POST /api/members/create
+* GET /api/members
+* GET /api/members/:id
+* PUT /api/members/:id
+* DELETE /api/members/:id
 
-*POST /api/members/buy-plan
-*GET /api/members/my-membership
+* POST /api/members/buy-plan
+* GET /api/members/my-membership
 
-# PAYMENT ROUTES:
-*POST /api/payments/create
-*PUT /api/payments/update-status
-*GET /api/payments/history
+**PAYMENT ROUTES**:
+* POST /api/payments/create
+* PUT /api/payments/update-status
+* GET /api/payments/history
 
-# ATTENDANCE ROUTES:
-*POST /api/attendance/mark
+**ATTENDANCE ROUTES**:
+* POST /api/attendance/mark
 
-# DASHBOARD ROUTES:
-*GET /api/dashboard/user
-*GET /api/dashboard/trainer
-*GET /api/dashboard/admin
-*GET /api/dashboard/attendance-admin
+**DASHBOARD ROUTES**:
+* GET /api/dashboard/user
+* GET /api/dashboard/trainer
+* GET /api/dashboard/admin
+* GET /api/dashboard/attendance-admin
 
-ROLES AND PERMISSIONS
+## ROLES AND PERMISSIONS:
 
-Admin
+**Admin**
 Full access to all features
 
-Trainer
+**Trainer**
 Attendance management and trainer dashboard access
 
-Member
+**Member**
 Membership access and user dashboard access
 
-FEATURES AND CONCEPTS IMPLEMENTED
+## FEATURES AND CONCEPTS IMPLEMENTED
 
-REST APIs
-JWT Authentication
-Middleware for security
-Role-based authorization
-MongoDB relationships (Population)
-Aggregation pipelines
-Cron jobs for automation
-Centralized error handling
-MVC architecture
+* REST APIs
+* JWT Authentication
+* Middleware for security
+* Role-based authorization
+* MongoDB relationships (Population)
+* Aggregation pipelines
+* Cron jobs for automation
+* Centralized error handling
+* MVC architecture
 
-AGGREGATION PIPELINES USED
+## AGGREGATION PIPELINES USED
 
-Attendance analytics
-Revenue calculations
-Dashboard statistics
-Trainer attendance performance
+* Attendance analytics
+* Revenue calculations
+* Dashboard statistics
+* Trainer attendance performance
 
-FUTURE IMPROVEMENTS
+## FUTURE IMPROVEMENTS
 
-Razorpay or Stripe payment gateway integration
-React frontend development
-Workout management system
-Diet plan system
-Session booking feature
-Email notification system
-File upload system
+* Razorpay or Stripe payment gateway integration
+* React frontend development
+* Workout management system
+* Diet plan system
+* Session booking feature
+* Email notification system
+*  File upload system
 
-PROJECT STATUS
 
-Backend fully completed
-Ready for frontend integration and deployment
-
-AUTHOR
+## AUTHOR
 
 Developed by Aditya Shukla
