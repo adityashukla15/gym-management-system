@@ -77,13 +77,13 @@ A complete backend system for managing a gym using **Node.js**, **Express.js**, 
 
 ---
 
-## ⚡ Automation
+## ⚡Automation
 - Cron Job for Automatic Membership Expiry
 - Expired Members become inactive automatically
 
 ---
 
-# 🔥 MongoDB Features Used
+# 🔥MongoDB Features Used
 - Mongoose Schemas
 - References & Populate
 - Aggregation Pipelines
@@ -92,7 +92,7 @@ A complete backend system for managing a gym using **Node.js**, **Express.js**, 
 
 ---
 
-# 🛠️ Tech Stack
+# 🛠️Tech Stack
 
 ## Backend
 - Node.js
@@ -139,13 +139,13 @@ src/
 git clone <your-github-link>
 ```
 
-**Install Dependencies**:
+**2️⃣Install Dependencies**:
 
 ```bash
 npm install
 ```
 
-**Create .env File**:
+**3️⃣Create .env File**:
 
 ```bash
 PORT=3000
@@ -165,21 +165,21 @@ EMAIL_PASS=your_email_password
 npm run dev
 ```
 
-## API ROUTES
+## 🔑API ROUTES
 
-**AUTH ROUTES**:
+**🔐AUTH ROUTES**:
 * POST /api/users/register
 * POST /api/users/login
 * GET /api/users/logout
 
-**PLAN ROUTES**:
+**📦PLAN ROUTES**:
 * POST /api/plans/create
 * GET /api/plans
 * GET /api/plans/:id
 * PUT /api/plans/:id
 * DELETE /api/plans/:id
 
-**MEMBER ROUTES**:
+**👥MEMBER ROUTES**:
 * POST /api/members/create
 * GET /api/members
 * GET /api/members/:id
@@ -189,21 +189,21 @@ npm run dev
 * POST /api/members/buy-plan
 * GET /api/members/my-membership
 
-**PAYMENT ROUTES**:
+**💳PAYMENT ROUTES**:
 * POST /api/payments/create
 * PUT /api/payments/update-status
 * GET /api/payments/history
 
-**ATTENDANCE ROUTES**:
+**👨‍🏫ATTENDANCE ROUTES**:
 * POST /api/attendance/mark
 
-**DASHBOARD ROUTES**:
+**📊DASHBOARD ROUTES**:
 * GET /api/dashboard/user
 * GET /api/dashboard/trainer
 * GET /api/dashboard/admin
 * GET /api/dashboard/attendance-admin
 
-## ROLES AND PERMISSIONS:
+## 🔐 ROLES AND PERMISSIONS:
 
 **Admin**
 Full access to all features
@@ -214,9 +214,8 @@ Attendance management and trainer dashboard access
 **Member**
 Membership access and user dashboard access
 
-## FEATURES AND CONCEPTS IMPLEMENTED
+## 🧠FEATURES AND CONCEPTS IMPLEMENTED
 
-* REST APIs
 * JWT Authentication
 * Middleware for security
 * Role-based authorization
@@ -226,14 +225,14 @@ Membership access and user dashboard access
 * Centralized error handling
 * MVC architecture
 
-## AGGREGATION PIPELINES USED
+## 📈AGGREGATION PIPELINES USED
 
 * Attendance analytics
 * Revenue calculations
 * Dashboard statistics
 * Trainer attendance performance
 
-## FUTURE IMPROVEMENTS
+## 🚀 FUTURE IMPROVEMENTS
 
 * Razorpay or Stripe payment gateway integration
 * React frontend development
@@ -244,6 +243,6 @@ Membership access and user dashboard access
 *  File upload system
 
 
-## AUTHOR
+## 👨‍💻AUTHOR
 
 Developed by Aditya Shukla
