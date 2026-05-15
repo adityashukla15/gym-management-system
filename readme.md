@@ -1,6 +1,12 @@
 # Gym Management System Backend 🚀
 
 A complete backend system for managing a gym using **Node.js**, **Express.js**, and **MongoDB** with secure authentication, role-based access control, membership management, payment workflow, trainer attendance tracking, dashboards, cron jobs, and aggregation pipelines.
+  
+## 🌐 Live Demo
+
+## 🌐 Live Demo
+
+[🚀 Gym Management System API](https://gym-management-system-1-stwz.onrender.com)
 
 ---
 
