@@ -10,6 +10,17 @@ const attendanceRouter=require('../src/routes/attendance.routes')
 
 const app=express()
 
+app.get('/', (req, res) => {
+
+  res.status(200).json({
+    success: true,
+    message: "Gym Management Backend Running 🚀",
+    serverTime: new Date(),
+    environment: process.env.NODE_ENV || "development"
+  });
+
+});
+
 app.use(cookieParser())
 app.use(express.json())
 app.use("/api/auth",authRouter)
